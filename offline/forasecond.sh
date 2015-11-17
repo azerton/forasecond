@@ -3,7 +3,9 @@ RAWPATH=$1
 
 #Convert and trim all raw clips
 rm $RAWPATH/trimmed/*MOV*
+rm $RAWPATH/trimmed/*mov*
 rm $RAWPATH/converted/*MOV*
+rm $RAWPATH/converted/*mov*
 
 for f in `ls -t $RAWPATH/*.{mov,MOV}`;
 do
