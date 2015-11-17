@@ -1,1 +1,1 @@
-Scripts to automatically generate a movie compiled of short movie clips.
+Scripts that convert a bunch of video files into one long movie of 1 second clips
