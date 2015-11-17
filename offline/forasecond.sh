@@ -2,10 +2,7 @@
 RAWPATH=$1
 
 #Convert and trim all raw clips
-rm "$RAWPATH/trimmed/*MOV*"
-rm "$RAWPATH/trimmed/*mov*"
-rm "$RAWPATH/converted/*MOV*"
-rm "$RAWPATH/converted/*mov*"
+rm $RAWPATH/trimmed/*.ts
 
 #Handle spaces in filenames
 OIFS="$IFS"
@@ -14,11 +11,10 @@ IFS=$'\n'
 for f in `ls -t $RAWPATH/*.{mov,MOV}`;
 do
 	echo "Processing $f"
-	echo "Converting file format"
+	echo "Converting and trimming file format"
 	./scripts/convert_format.sh "$f"
-	echo "Trimming clip"
-	./scripts/trim.sh "$f"
-	./scripts/resize.sh "$f"
+	#echo "Resizing clip"
+	#./scripts/resize.sh "$f"
 	echo ""
 #	./scripts/timestamp.sh $f
 done
