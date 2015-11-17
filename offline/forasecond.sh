@@ -5,7 +5,7 @@ RAWPATH=$1
 rm $RAWPATH/trimmed/*MOV*
 rm $RAWPATH/converted/*MOV*
 
-for f in $RAWPATH/*.MOV
+for f in `ls -t $RAWPATH/*.MOV`;
 do
 	echo "Processing $f"
 	echo "Converting file format"

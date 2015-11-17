@@ -1,0 +1,1 @@
+Scripts to automatically generate a movie compiled of short movie clips.
