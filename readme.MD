@@ -11,7 +11,7 @@ All the heavy lifting is done using ``ffmpeg``.
 fmpeg -version
 ```
 
-## The "offline" folder
+## Running the script
 
 All the offline files to generate the clip offline without interaction of the web server.
 
