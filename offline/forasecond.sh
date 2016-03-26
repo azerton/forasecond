@@ -24,7 +24,7 @@ done
 
 for f in `ls -1 $RAWPATH/trimmed/*_resized.ts`;
 do
-	echo "Concatenating $f"
+	echo "Including $f in list of files to concatenate"
 	echo "file $f" >> input.txt
 done
 
