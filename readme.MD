@@ -2,6 +2,15 @@
 Scripts that convert a bunch of video files into one long movie of 1 second clips
 
 
+## Requirements
+
+All the heavy lifting is done using ``ffmpeg``.
+``ffmpeg`` should be invokable on the command line. You can test this as following:
+
+```
+fmpeg -version
+```
+
 ## The "offline" folder
 
 All the offline files to generate the clip offline without interaction of the web server.
