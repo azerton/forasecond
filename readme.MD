@@ -13,9 +13,6 @@ fmpeg -version
 
 ## Running the script
 
-All the offline files to generate the clip offline without interaction of the web server.
-
-Running the script:
 ```
 ./forasecond.sh <folder where raw clips are stored>
 ```
@@ -26,7 +23,7 @@ The folder that contains the raw MOV clips (extension .mov or .MOV) should conta
 ./forasecond.sh ~/Desktop/Projects/forasecond/offline/clips/
 ```
 
-Output of running the script should be a file called forasecond.mp4 in the "offline" folder.
+Output of running the script should be a file called forasecond.mp4.
 
 
 ## License
