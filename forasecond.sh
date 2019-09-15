@@ -28,6 +28,4 @@ do
 	echo "file $f" >> input.txt
 done
 
-#ffmpeg -y -i "concat:$(ls -1 $RAWPATH/trimmed/*_resized.ts | perl -0pe 's/\n/|/g;s/\|$//g')" -async 1 -vcodec libx264 -bsf:a aac_adtstoasc $RAWPATH/../forasecond.mp4
 ffmpeg -y -f concat -analyzeduration 100M -probesize 100M -i input.txt -async 1 -vcodec libx264 -bsf:a aac_adtstoasc $RAWPATH/../forasecond.mp4
-#rm input.txt
