@@ -17,12 +17,6 @@ fmpeg -version
 ./forasecond.sh <folder where raw clips are stored>
 ```
 
-The folder that contains the raw MOV clips (extension .mov or .MOV) should contain 2 empty sub-folders: "trimmed" and "converted". The path provided as argument can be a relative path. For example, this should work:
-
-```
-./forasecond.sh ~/Desktop/Projects/forasecond/offline/clips/
-```
-
 Output of running the script should be a file called forasecond.mp4.
 
 

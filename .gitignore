@@ -1,7 +1,8 @@
-Cordova app/
-iOS app/
 *.mov
 *.MOV
 *.ts
 *.mp4
 *.MP4
+tmp/input.txt
+test/
+.DS_Store

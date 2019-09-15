@@ -1,14 +1,20 @@
 #!/bin/bash
-RAWPATH=$1
+PROJDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+# Move to the project parent folder
+cd $PROJDIR
+
+MOVPATH=$1
 
 #Convert and trim all raw clips
-rm $RAWPATH/trimmed/*.ts
+mkdir $PROJDIR/tmp/trimmed
+rm $PROJDIR/tmp/trimmed/*.ts
 
 #Handle spaces in filenames
 OIFS="$IFS"
 IFS=$'\n'
 
-for f in `ls -t $RAWPATH/*.{mov,MOV,mp4,MP4}`;
+for f in `find "$MOVPATH" -type f -name "*.mov" -o -name "*.MOV" -o -name "*.mp4" -o -name "*.MP4"`;
 do
 	echo "Processing $f"
 	echo "Converting and trimming file format"
@@ -20,12 +26,12 @@ do
 done
 
 #Now, multiplex all short clips together - overwrite the output file without asking for confirmation.
-> input.txt
+> $PROJDIR/tmp/input.txt
 
-for f in `ls -1 $RAWPATH/trimmed/*_resized.ts`;
+for f in `ls -1 $PROJDIR/tmp/trimmed/*.ts`;
 do
 	echo "Including $f in list of files to concatenate"
-	echo "file $f" >> input.txt
+	echo "file $f" >> tmp/input.txt
 done
 
-ffmpeg -y -f concat -analyzeduration 100M -probesize 100M -i input.txt -async 1 -vcodec libx264 -bsf:a aac_adtstoasc $RAWPATH/../forasecond.mp4
+ffmpeg -y -f concat -analyzeduration 100M -probesize 100M -safe 0 -i tmp/input.txt -async 1 -vcodec libx264 -bsf:a aac_adtstoasc $PROJDIR/forasecond.mp4
